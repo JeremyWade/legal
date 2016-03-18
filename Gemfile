@@ -1,10 +1,27 @@
 source 'https://rubygems.org'
 
+# Require a specific ruby version
+ruby '2.2.2'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.1'
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+# Use sqlite3 as the database for development and test
+gem 'sqlite3', group: [:development, :test]
+# Use postgres as the database in production
+gem 'pg', group: :production
+
+# Add 12 factor for Heroku
+gem 'rails_12factor', group: :production
+
+# Use bootstrap for improving the look and feel
+gem 'bootstrap-sass'
+
+# Use mailchimp API
+gem 'gibbon', '~> 2.2'
+
+# Secure login credentials
+gem "figaro"
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
